@@ -1,6 +1,8 @@
 import streamlit as st
 from datetime import datetime
 from zoneinfo import ZoneInfo
+import time
+from datetime import datetime
 
 # Page Config
 st.set_page_config(page_title="Analog World Clock", layout="wide")
@@ -105,6 +107,44 @@ for col, (city, tz) in zip(cols, timezones.items()):
 
     with col:
         st.markdown(clock_html, unsafe_allow_html=True)
+
+st.markdown("---")
+
+def countdown(target_datetime):
+    """
+    Displays a live countdown clock in Streamlit until target_datetime.
+    
+    Parameters
+    ----------
+    target_datetime : datetime
+        Future date & time to count down to
+    """
+    placeholder = st.empty()
+
+    while True:
+        now = datetime.now()
+        remaining = target_datetime - now
+
+        if remaining.total_seconds() <= 0:
+            placeholder.markdown("### ⏰ **Countdown finished!**")
+            break
+
+        days = remaining.days
+        hours, rem = divmod(remaining.seconds, 3600)
+        minutes, seconds = divmod(rem, 60)
+
+        placeholder.markdown(
+            f"""
+            ### ⏳ Countdown
+            **{days} days : {hours:02d} hours : {minutes:02d} minutes : {seconds:02d} seconds**
+            """
+        )
+
+        time.sleep(1)
+
+st.title("🚀 Countdown Timer")
+target = datetime(2026, 1, 30, 18, 0, 0)
+countdown(target)
 
 st.markdown("---")
 st.subheader("Important Links")
