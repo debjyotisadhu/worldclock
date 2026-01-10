@@ -129,7 +129,6 @@ def countdown(target_datetime):
         """
     )
 
-    time.sleep(1)
 
 target = datetime(2026, 1, 30, 18, 0, 0)
 countdown(target)
