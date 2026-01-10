@@ -116,7 +116,7 @@ def countdown(target_datetime):
 
     if remaining.total_seconds() <= 0:
         placeholder.markdown("### ⏰ **Countdown finished!**")
-        break
+        
 
     days = remaining.days
     hours, rem = divmod(remaining.seconds, 3600)
