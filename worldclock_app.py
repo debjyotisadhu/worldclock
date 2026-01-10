@@ -122,7 +122,7 @@ def countdown(target_datetime):
     hours, rem = divmod(remaining.seconds, 3600)
     minutes, seconds = divmod(rem, 60)
 
-    placeholder.markdown(
+    st.markdown(
         f"""
         ### ⏳ Countdown
         **{days} days : {hours:02d} hours : {minutes:02d} minutes : {seconds:02d} seconds**
