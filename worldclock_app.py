@@ -111,36 +111,25 @@ for col, (city, tz) in zip(cols, timezones.items()):
 st.markdown("---")
 
 def countdown(target_datetime):
-    """
-    Displays a live countdown clock in Streamlit until target_datetime.
-    
-    Parameters
-    ----------
-    target_datetime : datetime
-        Future date & time to count down to
-    """
-    placeholder = st.empty()
+    now = datetime.now()
+    remaining = target_datetime - now
 
-    while True:
-        now = datetime.now()
-        remaining = target_datetime - now
+    if remaining.total_seconds() <= 0:
+        placeholder.markdown("### ⏰ **Countdown finished!**")
+        break
 
-        if remaining.total_seconds() <= 0:
-            placeholder.markdown("### ⏰ **Countdown finished!**")
-            break
+    days = remaining.days
+    hours, rem = divmod(remaining.seconds, 3600)
+    minutes, seconds = divmod(rem, 60)
 
-        days = remaining.days
-        hours, rem = divmod(remaining.seconds, 3600)
-        minutes, seconds = divmod(rem, 60)
+    placeholder.markdown(
+        f"""
+        ### ⏳ Countdown
+        **{days} days : {hours:02d} hours : {minutes:02d} minutes : {seconds:02d} seconds**
+        """
+    )
 
-        placeholder.markdown(
-            f"""
-            ### ⏳ Countdown
-            **{days} days : {hours:02d} hours : {minutes:02d} minutes : {seconds:02d} seconds**
-            """
-        )
-
-        time.sleep(1)
+    time.sleep(1)
 
 target = datetime(2026, 1, 30, 18, 0, 0)
 countdown(target)
