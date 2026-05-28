@@ -130,7 +130,7 @@ def countdown(target_datetime):
     )
 
 
-target = datetime(2026, 6, 15, 10, 0, 0)
+target = datetime(2026, 6, 15, 4, 30, 0) # GMT
 try :
     countdown(target)
 except :
