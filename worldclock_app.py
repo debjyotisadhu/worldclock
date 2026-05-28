@@ -130,7 +130,7 @@ def countdown(target_datetime):
     )
 
 
-target = datetime(2026, 2, 27, 18, 0, 0)
+target = datetime(2026, 6, 15, 10, 0, 0)
 countdown(target)
 
 st.markdown("---")
