@@ -131,14 +131,24 @@ def countdown(target_datetime):
 
 
 target = datetime(2026, 6, 15, 10, 0, 0)
-countdown(target)
+try :
+    countdown(target)
+except :
+    pass
 
 st.markdown("---")
 st.subheader("Important Links")
-col1, col2, col3 = st.columns(3)
-with col1 :
-    st.link_button("Fix My PDF", "https://fixmypdf.streamlit.app/")
-    st.link_button("Salary Inhand Calculator", "https://salaryinhandcalculator.streamlit.app/")
+links = [
+    ("Fix My PDF", "https://fixmypdf.streamlit.app/"),
+    ("Salary Inhand Calculator", "https://salaryinhandcalculator.streamlit.app/"),
+    ("RAG Chatbot", "https://statistical-learning-bot.streamlit.app/"),
+]
+
+cols = st.columns(len(links))
+
+for col, (label, url) in zip(cols, links):
+    with col:
+        st.link_button(label, url)
 
 
 # Auto Refresh (Optional)
