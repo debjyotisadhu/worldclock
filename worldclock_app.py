@@ -138,6 +138,7 @@ st.subheader("Important Links")
 col1, col2, col3 = st.columns(3)
 with col1 :
     st.link_button("Fix My PDF", "https://fixmypdf.streamlit.app/")
+    st.link_button("Salary Inhand Calculator", "https://salaryinhandcalculator.streamlit.app/")
 
 
 # Auto Refresh (Optional)
