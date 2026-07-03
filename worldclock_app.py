@@ -141,6 +141,7 @@ st.subheader("Important Links")
 links = [
     ("Fix My PDF", "https://fixmypdf.streamlit.app/"),
     ("Salary Inhand Calculator", "https://salaryinhandcalculator.streamlit.app/"),
+    ("Fundwala", "https://fundwala.streamlit.app/"),
     ("RAG Chatbot", "https://statistical-learning-bot.streamlit.app/"),
 ]
 
